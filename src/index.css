@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.logo-container {
+  display: flex;
+  padding: 40px;
+  align-items: center;
+}
+
+
+.logo {
+  height: 50px; /* Adjust the size of the logo */
+  width: auto;
+  padding-left: 10%;
+}
+
+.nav {
+  flex: 1; /* Allows nav to take the remaining space */
+}
+
+.nav-links {
+  display: flex; /* Arrange links horizontally */
+  justify-content: flex-end; /* Align links to the right */
+  list-style: none; /* Remove bullet points */
+  margin: 0;
+  padding-right: 10%;
+  font-size: 18px ;
+  font-weight:bolder;
+  font-family: "Karla", serif;
+}
+
+.nav-links li {
+  margin: 0 15px; /* Add space between links */
+}
+
+.nav-links a {
+  text-decoration: none; /* Remove underline */
+  color: #333; /* Text color */
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #007BFF; /* Change color on hover */
+}
+
+.action {
+  background-color: #495E57;
+}
+
+section {
+  background-color: #f4f4f4;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 64px;
+  color: #F4CE14;
+  font-weight: bold;
+}
+
+.special h2 {
+  font-size: 40px;
+  color: #333333;
+  font-weight: normal;
+}
+h2 {
+  font-size: 40px;
+  color: #EDEFEE;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 20px;
+  color: #333;
+  font-weight: bolder;
+}
+
+h4 {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 16px;
+  color: #333;
+  font-weight: bolder;
+}
+
+p {
+  font-size: 16px;
+  color: #EDEFEE;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+h6 {
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 18px;
+  font-weight:bolder ;
+  font-family: 'Karla' sans-serif;
+  color: #333333;
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
