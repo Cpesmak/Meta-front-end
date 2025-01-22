@@ -2,7 +2,7 @@ import React from 'react';
 
 const CallToAction = () => {
     return (
-        <section class="action">
+        <section className="call-to-action">
             <h1>Little Lemon</h1>
             <h2>Chicago</h2>
             <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>

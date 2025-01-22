@@ -1,14 +1,12 @@
 import React from 'react';
 import logo from './Logo.png';
-import Nav from './Nav'; // Import the Nav component
 
-const Header = () => {
+function Header() {
   return (
-      <div className="logo-container">
+      <header>
         <img src={logo} alt="Little Lemon Logo" className="logo" />
-        <Nav />
-      </div>
-  )
+      </header>
+  );
 }
 
 export default Header;

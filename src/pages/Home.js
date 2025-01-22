@@ -4,7 +4,7 @@ import Specials from '../components/Specials';
 import CustomersSay from '../components/CustomersSay';
 import Chicago from '../components/Chicago';
 
-function HomePage() {
+const Home = () => {
     return (
         <>
             <CallToAction />
@@ -13,6 +13,6 @@ function HomePage() {
             <Chicago />
         </>
     );
-}
+};
 
-export default HomePage;
+export default Home;
