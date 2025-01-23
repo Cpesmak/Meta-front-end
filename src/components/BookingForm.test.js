@@ -1,17 +1,12 @@
-import { initializeTimes } from "../path-to-your-functions"; // Replace with the correct path
-import { fetchAPI } from "../path-to-api"; // Replace with the correct path
+import { render, screen } from "@testing-library/react";
+import BookingForm from "../components/BookingForm";
 
-jest.mock("../path-to-api"); // Mock the fetchAPI function
+test("Renders the BookingForm labels", () => {
+  render(<BookingForm availableTimes={[]} dispatch={jest.fn()} />);
 
-test("initializeTimes calls fetchAPI and returns available times", () => {
-  // Mock fetchAPI to return a non-empty array
-  fetchAPI.mockReturnValue(["17:00", "18:00", "19:00"]);
-
-  const result = initializeTimes();
-
-  // Assert that fetchAPI was called once
-  expect(fetchAPI).toHaveBeenCalledTimes(1);
-
-  // Assert that initializeTimes returns the mocked available times
-  expect(result).toEqual(["17:00", "18:00", "19:00"]);
+  // Check that static text such as labels are rendered
+  expect(screen.getByLabelText("Choose date")).toBeInTheDocument();
+  expect(screen.getByLabelText("Choose time")).toBeInTheDocument();
+  expect(screen.getByLabelText("Number of guests")).toBeInTheDocument();
+  expect(screen.getByLabelText("Occasion")).toBeInTheDocument();
 });

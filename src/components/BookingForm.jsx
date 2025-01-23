@@ -1,86 +1,90 @@
+
 import React, { useState } from "react";
 
-export default function BookingForm({ availableTimes, updateTimes, submitForm }) {
-  const [selectedDate, setSelectedDate] = useState(""); // Combined state for date
-  const [selectedTime, setSelectedTime] = useState("");
-  const [guests, setGuests] = useState(1);
-  const [occasion, setOccasion] = useState("");
+function BookingForm({ availableTimes, dispatch, submitForm }) {
+  const [formData, setFormData] = useState({
+    date: '',
+    time: '',
+    guests: '1',
+    occasion: ''
+  });
 
-  // Handle date change and update available times
-  const handleDateChange = (e) => {
-    const newDate = e.target.value; // Correctly define newDate
-    setSelectedDate(newDate); // Set the selected date
-    updateTimes(newDate); // Dispatch the date change to update available times
-  };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
 
-  const handleTimeChange = (e) => {
-    setSelectedTime(e.target.value); // Set the selected time
+    if (name === 'date') {
+    dispatch({ type: "UPDATE", payload: {selectedDate: value} });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = { date: selectedDate, time: selectedTime, guests, occasion };
-    submitForm(formData); // Call the submitForm function with the form data
+
+    if (!formData.date || !formData.time || !formData.guests || !formData.occasion) {
+      alert("Please fill in all fields before submitting.");
+      return;
+    }
+
+    submitForm(formData);
+    setFormData({
+      date: '',
+      time: '',
+      guests: '1',
+      occasion: ''
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: "grid", gap: "20px" }}>
-      {/* Date field */}
+    <form onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '300px', gap: '20px' }}>
       <label htmlFor="res-date">Choose date</label>
       <input
         type="date"
         id="res-date"
-        value={selectedDate}
-        onChange={handleDateChange}
-        required
+        name="date"
+        value={formData.date}
+        onChange={handleChange}
       />
 
-      {/* Time field */}
       <label htmlFor="res-time">Choose time</label>
       <select
         id="res-time"
-        value={selectedTime}
-        onChange={handleTimeChange}
-        required
+        name="time"
+        value={formData.time}
+        onChange={handleChange}
       >
-        {availableTimes.length > 0 ? (
-          availableTimes.map((time) => (
-            <option key={time} value={time}>
-              {time}
-            </option>
-          ))
-        ) : (
-          <option>No available times</option>
-        )}
+        <option value="">Select time</option>
+        {availableTimes.map((time) => (
+          <option key={time} value={time}>{time}</option>
+        ))}
       </select>
 
-      {/* Number of guests field */}
       <label htmlFor="guests">Number of guests</label>
       <input
         type="number"
         id="guests"
-        value={guests}
-        onChange={(e) => setGuests(e.target.value)}
+        name="guests"
+        value={formData.guests}
+        onChange={handleChange}
         min="1"
         max="10"
-        required
       />
 
-      {/* Occasion field */}
       <label htmlFor="occasion">Occasion</label>
       <select
         id="occasion"
-        value={occasion}
-        onChange={(e) => setOccasion(e.target.value)}
-        required
+        name="occasion"
+        value={formData.occasion}
+        onChange={handleChange}
       >
-        <option value="">Select an occasion</option>
+        <option value="">Select occasion</option>
         <option value="Birthday">Birthday</option>
         <option value="Anniversary">Anniversary</option>
       </select>
 
-      {/* Submit button */}
       <button type="submit">Submit Reservation</button>
     </form>
   );
 }
+
+export default BookingForm;

@@ -116,6 +116,9 @@ button {
   border-radius: 16px;
   cursor: pointer;
 }
+button:hover {
+  background-color: #e76f51;
+}
 
 button:hover {
   background-color: #0056b3;
@@ -127,4 +130,17 @@ footer {
   background-color: #ffffff;
   padding: 2rem;
 
+}
+
+.booking {
+  display: grid;
+  max-width: 300px;
+  gap: 20px;
+  margin: auto;
+}
+
+
+input, select {
+  padding: 10px;
+  font-size: 1rem;
 }
