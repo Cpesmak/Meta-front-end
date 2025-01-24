@@ -1,14 +1,8 @@
 import { initializeTimes, updateTimes } from "../pages/Booking";
 import { fetchAPI } from '../api'; // Import the fetchAPI function
-
 // Mock fetchAPI
 jest.mock('../api', () => ({
   fetchAPI: jest.fn(),
-}));
-
-// Mock useNavigate
-jest.mock('react-router-dom', () => ({
-  useNavigate: jest.fn(),
 }));
 
 describe('initializeTimes', () => {

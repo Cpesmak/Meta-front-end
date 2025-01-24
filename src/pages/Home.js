@@ -7,6 +7,7 @@ import Chicago from '../components/Chicago';
 const Home = () => {
     return (
         <>
+            <h1>Welcome to Little Lemon</h1>
             <CallToAction />
             <Specials />
             <CustomersSay />
